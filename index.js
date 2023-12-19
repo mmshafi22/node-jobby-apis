@@ -64,7 +64,7 @@ const verifyTheuser = (req,res,next) => {
     res.status(401);
     res.send("Invalid JWT Token");
   } else {
-    jwt.verify(jwtToken, "MY_SECRET_TOKEN", async (error, payload) => {
+    jwt.verify(jwtToken, "shafi_jobby_app", async (error, payload) => {
       if (error) {
         res.status(401);
         res.send("Invalid JWT Token");
