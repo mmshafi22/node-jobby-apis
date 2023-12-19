@@ -7,6 +7,6 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3001/jobby/jobs
+GET http://localhost:3001/jobby/jobs?employment_type=FULLTIME,PARTTIME&minimum_package=10&search=data
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNoYWZpIiwiaWF0IjoxNzAyOTY4NTY5fQ.215TrY-v9CF4XFN9LbRmfwFh1bRiQ4NlBIAt8gERTwc
