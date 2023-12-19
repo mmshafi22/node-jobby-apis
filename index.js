@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cors = require('cors')
+app.use(
+  cors()
+)
+app.use(express.json())
+app.use(express.static('public'))
 const sqlite3 = require('sqlite3');
 const jwt = require('jsonwebtoken');
 const { open } = require('sqlite');
@@ -69,7 +75,11 @@ const verifyTheuser = (req,res,next) => {
   }
 }
 
-app.post('/login/',async (req,res) => {
+app.get('/',async (req,res) => {
+  res.send('the server running ')
+})
+
+app.post('/login',async (req,res) => {
     const {name , password} = req.body
     const loginQuery = `select * from where name like '${name}'`;
     const student = await db.get(loginQuery)
