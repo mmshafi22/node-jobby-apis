@@ -56,7 +56,7 @@ initializeDBAndServer();
 
 const verifyTheuser = (req,res,next) => {
   let jwtToken;
-  const authHeader = req.headers["Authorization"];
+  const authHeader = req.headers["authorization"];
   if (authHeader !== undefined) {
     jwtToken = authHeader.split(" ")[1];
   }
@@ -102,7 +102,7 @@ app.post('/login',async (req,res) => {
 })
 
 app.get('/jobby/jobs/',verifyTheuser,async (req, res) => {
-    const defaultTypes = `'${roles.FULLTIME}','${roles.PARTTIME}','${roles.FREELANCE}','${roles.INTERNSHIP}'`;
+    const defaultTypes = `('${roles.FULLTIME}','${roles.PARTTIME}','${roles.FREELANCE}','${roles.INTERNSHIP}')`;
     const {search="",minimum_package=0,employment_type} = req.query
     let final_types;
     if (employment_type === undefined){
