@@ -5,8 +5,8 @@ const cors = require('cors')
 app.use(
   cors()
 )
-app.use(express.json())
 app.use(express.static('public'))
+app.use(express.json())
 const sqlite3 = require('sqlite3');
 const jwt = require('jsonwebtoken');
 const { open } = require('sqlite');
