@@ -91,7 +91,7 @@ app.post('/login/',async (req,res) => {
     }
 })
 
-app.get('/jobby/jobs/',async (req, res) => {
+app.get('/jobby/jobs/',verifyTheuser,async (req, res) => {
     const defaultTypes = `'${roles.FULLTIME}','${roles.PARTTIME}','${roles.FREELANCE}','${roles.INTERNSHIP}'`;
     const {search="",minimum_package=0,employment_type} = req.query
     console.log(minimum_package);
