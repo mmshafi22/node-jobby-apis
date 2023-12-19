@@ -80,13 +80,13 @@ app.get('/',async (req,res) => {
 })
 
 app.post('/login',async (req,res) => {
-    const {name , password} = req.body
-    const loginQuery = `select * from where name like '${name}'`;
+    const {username , password} = req.body
+    const loginQuery = `select * from student where name like '${username}'`;
     const student = await db.get(loginQuery)
     if (student !== undefined){
         if (student.password === password){
             const payload = {
-                name: name
+                username: username
             }
           const jwtToken = jwt.sign(payload,"shafi_jobby_app")
           res.status(200)
